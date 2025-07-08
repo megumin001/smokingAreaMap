@@ -105,24 +105,28 @@ export default function App() {
     backgroundColor: '#FF4264',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'flex-start', // 上寄せしたいなら
-    p: 4,
+    alignItems: 'flex-start',
+    p: { xs: 2, sm: 4 },
   }}
 >
-
   <Box
     sx={{
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      width: '60vw',        // 幅は必要に応じて調整
+      width: {
+        xs: '95vw',
+        sm: '90vw',
+        md: '70vw',
+        lg: '60vw',
+      },
       maxWidth: 900,
-      minHeight: '80vh',    // 高さの最低保証
-      gap: 3,               // 各セクションの間隔
-      backgroundColor: '#fff', // 例えば中身だけ白にしたいなら
+      minHeight: '80vh',
+      gap: 3,
+      backgroundColor: '#fff',
       borderRadius: 2,
       boxShadow: 3,
-      p: 3,
+      p: { xs: 2, sm: 3 },
     }}
   >
     {/* ロゴとニャンキャット横並び */}
@@ -219,7 +223,19 @@ export default function App() {
     zIndex: 9999,
   }}
 >
-  <TalkingNyanCat />
+<Box
+  sx={{
+    position: {
+      xs: 'fixed', // スマホのときだけ固定
+      md: 'static', // PCでは普通にレイアウト内
+    },
+    left: { xs: 10, md: 'auto' },
+    bottom: { xs: 325, md: 'auto' },
+    zIndex: 9999,
+  }}
+>
+  <TalkingNyanCat/>
+</Box>
 </Box>
 </>
   );
